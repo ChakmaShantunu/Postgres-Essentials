@@ -59,3 +59,16 @@ limit
     5
 offset
     10;
+
+update students
+set
+    email = 'default@gmail.com'
+where
+    email is null;
+
+--Update
+update students
+set
+    grade = 'A+'
+where
+    email = 'labiba.parvin@example.com';
