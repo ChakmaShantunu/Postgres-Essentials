@@ -72,3 +72,8 @@ set
     grade = 'A+'
 where
     email = 'labiba.parvin@example.com';
+
+--delete
+delete from students
+where
+    email = 'imran.hasan@example.com';
