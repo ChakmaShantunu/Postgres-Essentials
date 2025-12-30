@@ -77,3 +77,35 @@ where
 delete from students
 where
     email = 'imran.hasan@example.com';
+
+-- Group by
+select
+    country,
+    count(*)
+from
+    students
+group by
+    country;
+
+select
+    country
+from
+    students
+group by
+    country;
+
+select
+    grade,
+    sum(age) as students_age
+from
+    students
+group by
+    grade;
+
+select
+    country,
+    avg(age) as students_age
+from
+    students
+group by
+    country;
