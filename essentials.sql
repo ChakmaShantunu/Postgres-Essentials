@@ -109,3 +109,24 @@ from
     students
 group by
     country;
+
+select
+    grade,
+    count(*)
+from
+    students
+group by
+    grade
+having
+    count(*) >= 2;
+
+-- Group by having
+select
+    country,
+    count(*)
+from
+    students
+group by
+    country
+having
+    count(*) >= 2;
