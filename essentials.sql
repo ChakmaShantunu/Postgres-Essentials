@@ -130,3 +130,6 @@ group by
     country
 having
     count(*) >= 2;
+
+--Foreign Key Explained
+
