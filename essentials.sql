@@ -171,3 +171,33 @@ VALUES
     ('Foreign Key Explained', 3),
     ('Backend Journey', 1),
     ('PostgreSQL Basics', 4);
+
+--User name + post title
+select
+    users.name,
+    post.title
+from
+    users
+    inner join post on users.id = post.user_id;
+
+select
+    title,
+    name
+from
+    post
+    join users on post.user_id = users.id;
+
+--User name + orders amount
+select
+    users.name,
+    orders.amount
+from
+    users
+    inner join orders on users.id = orders.user_id;
+
+select
+    amount,
+    name
+from
+    orders
+    join users on orders.user_id = users.id;
