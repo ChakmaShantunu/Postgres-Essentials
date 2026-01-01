@@ -132,4 +132,42 @@ having
     count(*) >= 2;
 
 --Foreign Key Explained
+create table
+    users (id int primary key, name varchar(50));
 
+create table
+    orders (
+        id int primary key,
+        user_id int,
+        amount int,
+        Foreign key (user_id) references users (id)
+    );
+
+-- Adding Foreign Key Constraint
+--post table
+create table
+    post (
+        id serial primary key,
+        title text not null,
+        user_id int references users (id)
+    );
+
+--insert users
+INSERT INTO
+    users (name)
+VALUES
+    ('rahim'),
+    ('karim'),
+    ('salma'),
+    ('rafi'),
+    ('mina');
+
+--insert posts
+INSERT INTO
+    post (title, user_id)
+VALUES
+    ('My first post', 1),
+    ('Learning SQL', 2),
+    ('Foreign Key Explained', 3),
+    ('Backend Journey', 1),
+    ('PostgreSQL Basics', 4);
