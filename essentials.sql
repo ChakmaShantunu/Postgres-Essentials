@@ -201,3 +201,12 @@ select
 from
     orders
     join users on orders.user_id = users.id;
+
+--left join
+select
+    users.id,
+    users.name,
+    post.title
+from
+    users
+    left join post on users.id = post.user_id;
