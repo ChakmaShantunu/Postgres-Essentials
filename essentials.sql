@@ -228,3 +228,23 @@ SELECT
 FROM
     users
     FULL JOIN post ON users.id = post.user_id;
+
+
+--right join
+SELECT
+    users.id,
+    users.name,
+    post.title
+FROM
+    users
+    RIGHT JOIN post ON users.id = post.user_id;
+
+
+--full join
+SELECT
+    users.id,
+    users.name,
+    post.title
+FROM
+    users
+    FULL JOIN post ON users.id = post.user_id;
