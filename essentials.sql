@@ -229,7 +229,6 @@ FROM
     users
     FULL JOIN post ON users.id = post.user_id;
 
-
 --right join
 SELECT
     users.id,
@@ -239,7 +238,6 @@ FROM
     users
     RIGHT JOIN post ON users.id = post.user_id;
 
-
 --full join
 SELECT
     users.id,
@@ -248,3 +246,57 @@ SELECT
 FROM
     users
     FULL JOIN post ON users.id = post.user_id;
+
+-- All Joins Overview (Cross & Natural Too)
+create table
+    employees (emp_id int, emp_name varchar(50), dept_id int);
+
+create table
+    departments (dept_id int, dept_name varchar(50));
+
+INSERT INTO
+    employees (emp_id, emp_name, dept_id)
+VALUES
+    (101, 'Alice Johnson', 1),
+    (102, 'Bob Smith', 2),
+    (103, 'Charlie Brown', 3),
+    (104, 'Diana Prince', 4),
+    (105, 'Ethan Hunt', 5),
+    (106, 'Fiona Gallagher', 1),
+    (107, 'George Martin', 2),
+    (108, 'Hannah Baker', 3),
+    (109, 'Ian Somerhalder', 4),
+    (110, 'Jane Doe', 5);
+
+INSERT INTO
+    departments (dept_id, dept_name)
+VALUES
+    (1, 'Human Resources'),
+    (2, 'Finance'),
+    (3, 'Marketing'),
+    (4, 'IT'),
+    (5, 'Sales');
+
+select
+    *
+from
+    employees;
+
+select
+    *
+from
+    departments;
+
+--cross join
+select
+    *
+from
+    employees
+    cross join departments;
+
+--natural join
+select
+    *
+from
+    employees
+    natural join departments;
