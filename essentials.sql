@@ -300,3 +300,52 @@ select
 from
     employees
     natural join departments;
+
+
+
+create table
+    employees (
+        emp_id serial primary key,
+        emp_name varchar(50),
+        dept_id int references departments (dept_id),
+        salary decimal(10, 2),
+        hire_date date
+    );
+
+create table
+    departments (dept_id serial primary key, dept_name varchar(50));
+
+INSERT INTO
+    employees (emp_name, dept_id, salary, hire_date)
+VALUES
+    ('Alice Johnson', 1, 50000.00, '2022-01-10'),
+    ('Bob Smith', 2, 60000.50, '2021-12-05'),
+    ('Charlie Brown', 3, 45000.75, '2022-03-15'),
+    ('Diana Prince', 4, 70000.00, '2021-11-20'),
+    ('Ethan Hunt', 5, 48000.25, '2022-02-01'),
+    ('Farhan Rahman', 6, 52000.00, '2022-04-10'),
+    ('Grace Lee', 7, 40000.50, '2022-05-05'),
+    ('Hasan Mahmud', 8, 55000.00, '2021-10-25'),
+    ('Ishrat Jahan', 9, 80000.99, '2020-09-30'),
+    ('Jahid Hasan', 10, 58000.00, '2021-08-18');
+
+INSERT INTO
+    departments (dept_id, dept_name)
+VALUES
+    (1, 'Human Resources'),
+    (2, 'Finance'),
+    (3, 'Marketing'),
+    (4, 'IT'),
+    (5, 'Sales'),
+    (6, 'Operations'),
+    (7, 'Customer Support'),
+    (8, 'Administration'),
+    (9, 'Research and Development'),
+    (10, 'Quality Assurance');
+
+-- Inner join to retrieve employee and department information"
+select
+    *
+from
+    employees
+    inner join departments on employees.dept_id = departments.dept_id;
