@@ -301,8 +301,6 @@ from
     employees
     natural join departments;
 
-
-
 create table
     employees (
         emp_id serial primary key,
@@ -347,5 +345,12 @@ VALUES
 select
     *
 from
+    employees as e
+    inner join departments as d on e.dept_id = d.dept_id;
+
+--simple and short
+select
+    *
+from
     employees
-    inner join departments on employees.dept_id = departments.dept_id;
+    join departments using (dept_id);
