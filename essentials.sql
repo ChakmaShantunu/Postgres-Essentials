@@ -354,3 +354,12 @@ select
 from
     employees
     join departments using (dept_id);
+
+select
+    dept_id,
+    dept_name
+from
+    departments
+    left join employees using (dept_id)
+where
+    emp_id is null;
