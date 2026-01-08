@@ -363,3 +363,15 @@ from
     left join employees using (dept_id)
 where
     emp_id is null;
+
+-- Avarage Salary
+SELECT
+    d.dept_name,
+    AVG(e.salary) AS avg_salary
+FROM
+    departments d
+    JOIN employees e USING (dept_id)
+GROUP BY
+    d.dept_name
+ORDER BY
+    avg_salary DESC;
