@@ -364,14 +364,34 @@ from
 where
     emp_id is null;
 
--- Avarage Salary
-SELECT
-    d.dept_name,
-    AVG(e.salary) AS avg_salary
-FROM
-    departments d
-    JOIN employees e USING (dept_id)
-GROUP BY
-    d.dept_name
-ORDER BY
-    avg_salary DESC;
+--Show department name with Avarage Salary
+select
+    dept_name,
+    round(avg(salary))
+from
+    employees
+    inner join departments using (dept_id)
+group by
+    dept_name;
+
+--count employees in each department
+select
+    dept_name,
+    count(*)
+from
+    employees
+    inner join departments using (dept_id)
+group by
+    dept_name;
+
+--Find the department name with the highest avarage salary
+select
+    dept_name,
+    round(avg(salary)) as avg_salary
+from
+    employees
+    inner join departments using (dept_id)
+group by
+    dept_name
+order by
+    avg_salary desc;
