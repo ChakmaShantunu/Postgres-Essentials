@@ -395,3 +395,16 @@ group by
     dept_name
 order by
     avg_salary desc;
+
+--count employees hired each year
+select
+    extract(
+        year
+        from
+            hire_date
+    ) as hired_year,
+    count(*)
+from
+    employees
+group by
+    hired_year;
