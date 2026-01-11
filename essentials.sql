@@ -421,3 +421,16 @@ where
         from
             employees
     );
+
+--find employees who earn more than the average salary
+select
+    *
+from
+    employees
+where
+    salary > (
+        select
+            avg(salary)
+        from
+            employees
+    );
