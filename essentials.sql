@@ -408,3 +408,16 @@ from
     employees
 group by
     hired_year;
+
+--find which employe gets the highest salary with subquery
+select
+    *
+from
+    employees
+where
+    salary = (
+        select
+            max(salary)
+        from
+            employees
+    );
