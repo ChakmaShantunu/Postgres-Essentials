@@ -434,3 +434,19 @@ where
         from
             employees
     );
+
+--Name of the employee who gets the highest salary in the department id 2
+select
+    emp_name,
+    salary
+from
+    employees
+where
+    salary = (
+        select
+            max(salary)
+        from
+            employees
+        where
+            dept_id = 2
+    );
