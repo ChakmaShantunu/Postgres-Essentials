@@ -450,3 +450,23 @@ where
         where
             dept_id = 2
     );
+
+--count with function
+    create function emp_count()
+returns int
+language sql
+as $$
+   select count(*) from employees; 
+  $$
+
+select emp_count();
+
+--delete with function
+create function delete_id_emp(p_emp_id int)
+returns void
+language sql
+as $$
+   delete from employees where emp_id = p_emp_id; 
+  $$
+
+select delete_id_emp(60);
