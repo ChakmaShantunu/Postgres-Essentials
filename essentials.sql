@@ -470,3 +470,15 @@ as $$
   $$
 
 select delete_id_emp(60);
+
+--procedure
+create procedure delete_emp_byid(p_emp_id int)
+language plpgsql
+as
+$$
+  begin
+  delete from employees where emp_id = p_emp_id;
+  end;
+$$
+
+call delete_emp_byid(59);
