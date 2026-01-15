@@ -482,3 +482,27 @@ $$
 $$
 
 call delete_emp_byid(59);
+
+create procedure increase_low_salary(department int)
+language plpgsql
+as
+$$
+  declare
+  avg_salary numeric;
+  begin
+  --first step
+  select avg(salary) into avg_salary from employees where dept_id = department;
+
+  --second step
+  update employees
+set salary = salary * 1.10
+where dept_id = department
+  and salary = (
+    select min(salary)
+    from employees
+    where dept_id = department
+  );
+  end;
+  $$
+
+  call increase_low_salary(8);
