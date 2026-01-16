@@ -506,3 +506,29 @@ where dept_id = department
   $$
 
   call increase_low_salary(8);
+
+  create table employee_log(
+  emp_id int,
+  deleted_at timestamp
+);
+
+create function log_employee_delete()
+returns trigger
+language plpgsql
+as
+$$
+  begin
+  insert into employee_log(emp_id, deleted_at)
+  values(old.emp_id, now());
+  return old;
+  end;
+  $$;
+
+create trigger after_employee_delete
+after delete
+on employees
+for each row
+execute function log_employee_delete();
+
+delete from employees where emp_id = 58;
+
