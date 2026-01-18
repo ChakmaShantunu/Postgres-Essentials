@@ -532,3 +532,8 @@ execute function log_employee_delete();
 
 delete from employees where emp_id = 58;
 
+create index idx_emp_id on employees(emp_id);
+
+explain analyze
+select * from employees where emp_id = 57;
+
